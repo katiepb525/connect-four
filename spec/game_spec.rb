@@ -24,7 +24,11 @@ describe Game do
     end
 
     context 'player puts in invalid input' do
-
+      invalid_input = 9
+      it 'returns true' do
+        result = game.verify_input(invalid_input)
+        expect(result).to be false
+      end
     end
   end
 
