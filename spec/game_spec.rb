@@ -2,19 +2,17 @@
 
 require './lib/game'
 
-
 describe Game do
-  subject(:game) { described_class.new}
+  subject(:game) { described_class.new }
 
   before do
     allow($stdout).to receive(:puts)
   end
-  
-  describe "#play_round" do
-  
+
+  describe '#play_round' do
   end
 
-  describe "#verify_input" do
+  describe '#verify_input' do
     context 'player puts in valid input' do
       valid_input = 5
       it 'returns true' do
@@ -32,15 +30,12 @@ describe Game do
     end
   end
 
-  describe "#play_game" do
-
+  describe '#play_game' do
   end
 
-  describe "#game_over" do
-
+  describe '#game_over' do
   end
 
-  describe "#tie?" do
-
+  describe '#tie?' do
   end
 end
