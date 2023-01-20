@@ -59,7 +59,26 @@ describe Game do
   describe '#play_game' do
   end
 
-  describe '#game_over' do
+  describe '#game_over?' do
+    subject(:player_won) { described_class.new }
+    won_grid = Array.new(6) { Array.new(7) { 'O' } }
+    won_grid[5][1] = 'X'
+    won_grid[4][1] = 'X'
+    won_grid[3][1] = 'X'
+    won_grid[2][1] = 'X'
+
+    let(:winning_board) { instance_double(Board, grid: won_grid)}
+
+    context 'four symbols in a column consecutively' do
+      before do
+        player_won.instance_variable_set(:@board, winning_board)
+      end
+
+      it 'returns true' do
+        expect(player_won.game_over?).to be(true)
+        player_won.game_over?
+      end
+    end
   end
 
   describe '#tie?' do
