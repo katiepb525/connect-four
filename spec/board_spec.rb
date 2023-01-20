@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require './lib/board'
 
 describe Board do
   subject(:board) { described_class.new }
 
-  describe '#win_horiziontal?' do
+  describe '#win_row?' do
     context 'there are four symbols in a horiziontal consecutively' do
       won_row = Array.new(6) { Array.new(7) { 'O' } }
       won_row[0][0] = 'X'
