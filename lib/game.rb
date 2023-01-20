@@ -11,6 +11,7 @@ class Game
   def initialize
     @player1 = Player.new(get_name('player one'), umbrella)
     @player2 = Player.new(get_name('player two'), cloud)
+    @turn = 0
   end
 
   def get_name(current_player)
@@ -25,6 +26,11 @@ class Game
 
   def verify_input(input)
     input.instance_of?(Integer) && input.between?(1, 7)
+  end
+
+  def play_round
+    @turn += 1
+    @turn.odd? ? @player1 : @player2 
   end
 end
 
