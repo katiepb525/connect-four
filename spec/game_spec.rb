@@ -10,6 +10,32 @@ describe Game do
   end
 
   describe '#play_round' do
+    subject(:game_turn) { described_class.new }
+    let(:player1) { instance_double(Player, name: 'Sam', symbol: nil)}
+    let(:player2) { instance_double(Player, name: 'Callie', symbol: nil)}
+
+    before do
+      game_turn.instance_variable_set(:@player1, player1)
+      game_turn.instance_variable_set(:@player2, player2)
+    end
+
+    context 'turn is an odd number' do
+      it 'returns player1' do
+        result = game_turn.play_round
+        expect(result.name).to be(player1.name)
+      end
+    end
+
+    context 'turn is an even number' do
+      before do
+        game_turn.instance_variable_set(:@turn, 1)
+      end
+
+      it 'returns player2' do
+        result = game_turn.play_round
+        expect(result.name).to be(player2.name)
+      end
+    end
   end
 
   describe '#verify_input' do
