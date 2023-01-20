@@ -1,15 +1,24 @@
+require './lib/board'
+
 describe Board do
   subject(:board) { described_class.new }
 
   describe '#win_horiziontal?' do
-  
-    context 'there are four symbols in a row' do
- 
-      it 'returns true' do
+    context 'there are four symbols in a diagonal consecutively' do
+      won_row = Array.new(6) { Array.new(7) { 'O' } }
+      won_row[0][0] = 'X'
+      won_row[0][1] = 'X'
+      won_row[0][2] = 'X'
+      won_row[0][3] = 'X'
+
+      before do
+        board.instance_variable_set(:@grid, won_row)
       end
 
+      it 'returns true' do 
+        expect board.win_row?.to be true
+      end
     end
-    
   end
 
   describe '#win_diagonal?' do
