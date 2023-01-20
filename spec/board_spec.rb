@@ -4,7 +4,7 @@ describe Board do
   subject(:board) { described_class.new }
 
   describe '#win_horiziontal?' do
-    context 'there are four symbols in a diagonal consecutively' do
+    context 'there are four symbols in a horiziontal consecutively' do
       won_row = Array.new(6) { Array.new(7) { 'O' } }
       won_row[0][0] = 'X'
       won_row[0][1] = 'X'
