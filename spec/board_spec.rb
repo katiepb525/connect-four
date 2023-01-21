@@ -36,8 +36,9 @@ describe Board do
         board.instance_variable_set(:@grid, won_diag)
       end
 
-      it 'returns true' do 
-        expect board.win_diag?.to be true
+      it 'returns true' do
+        result = board.win_diag?
+        expect(result).to be true
       end
     end
   end
