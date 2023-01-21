@@ -59,7 +59,6 @@ describe Board do
       end
     end
 
-
     context 'at bottom right grid, there is a left facing diagonal' do
       won_diag = Array.new(6) { Array.new(7) { 'O' } }
       won_diag[2][3] = 'X'
@@ -147,5 +146,4 @@ describe Board do
       end
     end
   end
-  
 end
