@@ -113,5 +113,22 @@ describe Board do
         expect(result).to be true
       end
     end
+
+    context 'there is a column match in the bottom right corner' do
+      won_column = Array.new(6) { Array.new(7) { 'O' } }
+      won_column[2..5].each do |row|
+        row[6] = 'X'
+      end
+
+      before do
+        board.instance_variable_set(:@grid, won_column)
+      end
+
+      it 'returns true' do
+        result = board.win_column?
+        expect(result).to be true
+      end
+    end
   end
+  
 end
