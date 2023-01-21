@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require './lib/game'
 
 describe Game do
@@ -57,30 +56,26 @@ describe Game do
   end
 
   describe '#play_game' do
+    # should play round until game over OR tie
   end
 
   describe '#game_over?' do
-    subject(:player_won) { described_class.new }
-    won_grid = Array.new(6) { Array.new(7) { 'O' } }
-    won_grid[5][1] = 'X'
-    won_grid[4][1] = 'X'
-    won_grid[3][1] = 'X'
-    won_grid[2][1] = 'X'
-
-    let(:winning_board) { instance_double(Board, grid: won_grid) }
-
-    context 'four symbols in a column consecutively' do
+    subject(:player_won){ described_class.new }
+    context 'win_row is true' do
+      let(:board) { instance_double(Board, grid: nil) }
       before do
-        player_won.instance_variable_set(:@board, winning_board)
+        player_won.instance_variable_set(:@board, board)
+        allow(player_won.board).to receive(:win_row?).and_return(true)
       end
 
       it 'returns true' do
-        expect(player_won.game_over?).to be(true)
-        player_won.game_over?
+        result = player_won.game_over?
+        expect(result).to be true
       end
     end
   end
 
   describe '#tie?' do
+    # checks if the grid is full
   end
 end
