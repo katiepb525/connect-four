@@ -37,4 +37,12 @@ class Board
     end
     false
   end
+
+  def win_diag_right?
+    grid[0..2].each_with_index do |row, idx|
+      diag = [grid[idx][idx + 3], grid[idx + 1][idx + 2], grid[idx + 2][idx + 1], grid[idx + 3][idx]]
+      return true if diag.all? { |e| e == "X" }
+    end
+    false
+  end
 end
