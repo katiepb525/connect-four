@@ -73,10 +73,10 @@ describe Board do
         board.instance_variable_set(:@grid, won_column)
       end
 
-      it 'returns true' do 
-        expect board.win_column?.to be true
+      it 'returns true' do
+        result = board.win_column?
+        expect(result).to be true
       end
-      
     end
   end
 end
