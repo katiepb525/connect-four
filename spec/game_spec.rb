@@ -11,8 +11,8 @@ describe Game do
 
   describe '#play_round' do
     subject(:game_turn) { described_class.new }
-    let(:player1) { instance_double(Player, name: 'Sam', symbol: nil)}
-    let(:player2) { instance_double(Player, name: 'Callie', symbol: nil)}
+    let(:player1) { instance_double(Player, name: 'Sam', symbol: nil) }
+    let(:player2) { instance_double(Player, name: 'Callie', symbol: nil) }
 
     before do
       game_turn.instance_variable_set(:@player1, player1)
@@ -67,7 +67,7 @@ describe Game do
     won_grid[3][1] = 'X'
     won_grid[2][1] = 'X'
 
-    let(:winning_board) { instance_double(Board, grid: won_grid)}
+    let(:winning_board) { instance_double(Board, grid: won_grid) }
 
     context 'four symbols in a column consecutively' do
       before do
