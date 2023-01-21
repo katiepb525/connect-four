@@ -34,6 +34,10 @@ class Game
     @turn += 1
     @turn.odd? ? @player1 : @player2 
   end
+
+  def game_over?
+    board.win_row? || board.win_diag_left? || board.win_diag_right? || board.win_column?
+  end
 end
 
 # game = Game.new
