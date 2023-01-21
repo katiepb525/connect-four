@@ -55,7 +55,7 @@ describe Board do
       end
 
       it 'returns true' do
-        result = board.win_diag_right?
+        result = board.win_diag_left?
         expect(result).to be true
       end
     end
