@@ -98,7 +98,7 @@ describe Board do
   end
 
   describe 'win_column?' do
-    context 'there are four symbols in a column consecutively' do
+    context 'there is a column match in the top left corner' do
       won_column = Array.new(6) { Array.new(7) { 'O' } }
       won_column[0..3].each do |row|
         row[0] = 'X'
