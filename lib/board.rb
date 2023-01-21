@@ -19,7 +19,7 @@ class Board
   end
 
   def win_row?
-    @grid.each do |row|
+    grid.each do |row|
       index_start = 0
       index_end = 3
       return true if row[index_start..index_end].all? { |e| e == 'X' }
