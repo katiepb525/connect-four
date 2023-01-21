@@ -43,6 +43,25 @@ describe Board do
     end
   end
 
+  describe '#win_diag_right?' do
+    context 'there are four symbols in a right facing diagonal consecutively' do
+      won_diag = Array.new(6) { Array.new(7) { 'O' } }
+      won_diag[0][3] = 'X'
+      won_diag[1][2] = 'X'
+      won_diag[2][1] = 'X'
+      won_diag[3][0] = 'X'
+
+      before do
+        board.instance_variable_set(:@grid, won_diag)
+      end
+
+      it 'returns true' do
+        result = board.win_diag_right?
+        expect(result).to be true
+      end
+    end
+  end
+
   describe 'win_column?' do
     context 'there are four symbols in a column consecutively' do
       won_column = Array.new(6) { Array.new(7) { 'O' } }
