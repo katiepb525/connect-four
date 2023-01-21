@@ -24,7 +24,7 @@ describe Board do
     end
   end
 
-  describe '#win_diag?' do
+  describe '#win_diag_left?' do
     context 'there are four symbols in a diagonal consecutively' do
       won_diag = Array.new(6) { Array.new(7) { 'O' } }
       won_diag[0][0] = 'X'
@@ -37,7 +37,7 @@ describe Board do
       end
 
       it 'returns true' do
-        result = board.win_diag?
+        result = board.win_diag_left?
         expect(result).to be true
       end
     end

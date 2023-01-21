@@ -30,7 +30,7 @@ class Board
     end
   end
 
-  def win_diag?
+  def win_diag_left?
     grid[0..2].each_with_index do |row, idx|
       diag = [grid[idx][idx], grid[idx + 1][idx + 1], grid[idx + 2][idx + 2], grid[idx + 3][idx + 3]]
       return true if diag.all? { |e| e == "X" }
