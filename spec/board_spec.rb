@@ -24,7 +24,7 @@ describe Board do
     end
   end
 
-  describe '#win_diagonal?' do
+  describe '#win_diag?' do
     context 'there are four symbols in a diagonal consecutively' do
       won_diag = Array.new(6) { Array.new(7) { 'O' } }
       won_diag[0][0] = 'X'
