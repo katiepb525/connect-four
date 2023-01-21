@@ -22,6 +22,23 @@ describe Board do
         expect(result).to be true
       end
     end
+
+    context 'at bottom right grid, there is a row match' do
+      won_row = Array.new(6) { Array.new(7) { 'O' } }
+      won_row[5][3] = 'X'
+      won_row[5][4] = 'X'
+      won_row[5][5] = 'X'
+      won_row[5][6] = 'X'
+
+      before do
+        board.instance_variable_set(:@grid, won_row)
+      end
+
+      it 'returns true' do
+        result = board.win_row?
+        expect(result).to be true
+      end
+    end
   end
 
   describe '#win_diag_left?' do
