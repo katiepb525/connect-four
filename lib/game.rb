@@ -7,10 +7,12 @@ require './lib/board'
 class Game
   include Symbols
   attr_reader :player1, :player2
+  attr_accessor :board
 
   def initialize
     @player1 = Player.new(get_name('player one'), umbrella)
     @player2 = Player.new(get_name('player two'), cloud)
+    @board = Board.new
     @turn = 0
   end
 
