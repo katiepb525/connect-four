@@ -45,4 +45,15 @@ class Board
     end
     false
   end
+
+  def win_column?
+    7.times do |column_idx|
+      current_column = []
+      grid[0..2].each_with_index do |row, row_idx|
+        current_column = [grid[row_idx][column_idx], grid[row_idx + 1][column_idx], grid[row_idx + 2][column_idx], grid[row_idx + 3][column_idx]]
+        return true if current_column.all? { |e| e == 'X' }
+      end
+    end
+    false
+  end
 end
