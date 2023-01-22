@@ -43,17 +43,17 @@ class Game
     until game_over?(current_player) || tie?
       current_player = play_round
       choice = nil
-      
+
       board.display_board
 
       until verify_input(get_choice(current_player))
         choice = get_choice(current_player)
       end
 
-      # update_board(choice, current_player.symbol)
+      board.update_board(choice, current_player.symbol)
     end
+    puts "game over! #{current_player.name} won!"
   end
-
 
   def play_round 
     self.turn += 1
