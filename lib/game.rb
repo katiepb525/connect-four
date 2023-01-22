@@ -38,6 +38,10 @@ class Game
   def game_over?
     board.win_row? || board.win_diag_left? || board.win_diag_right? || board.win_column?
   end
+
+  def tie?
+    !board.grid.include?(empty_circle)
+  end
 end
 
 # game = Game.new
