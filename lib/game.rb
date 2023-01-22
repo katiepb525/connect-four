@@ -50,8 +50,8 @@ class Game
     end
   end
 
-  def game_over?
-    board.win_row? || board.win_diag_left? || board.win_diag_right? || board.win_column?
+  def game_over?(current_player)
+    board.win_row?(current_player.symbol) || board.win_diag_left?(current_player.symbol) || board.win_diag_right?(current_player.symbol) || board.win_column?(current_player.symbol)
   end
 
   def tie?
