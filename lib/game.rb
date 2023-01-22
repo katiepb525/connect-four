@@ -36,11 +36,12 @@ class Game
     current_player = self.player1
     puts "Player one, you are #{heart}. Player two, you are #{star}."
 
-    until game_over?(current_player) || tie?
+    until tie?
       current_player = play_round
       choice = nil
 
       board.display_board
+      break if game_over?(current_player)
 
       until verify_input(choice)
         choice = get_choice(current_player)
