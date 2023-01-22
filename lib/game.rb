@@ -36,8 +36,8 @@ class Game
   end
 
   def play_game
-    self.player1 = get_name('player one', umbrella)
-    self.player2 = get_name('player two', cloud)
+    self.player1 = get_name('player one', heart)
+    self.player2 = get_name('player two', star)
     current_player = self.player1
 
     until game_over?(current_player) || tie?
