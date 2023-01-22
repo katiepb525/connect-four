@@ -35,6 +35,21 @@ class Game
     @turn.odd? ? @player1 : @player2 
   end
 
+  def play_game
+    until game_over? || tie?
+      currrent_player = play_round
+      choice = nil
+      
+      board.display_board
+
+      until verify_input(get_choice)
+        choice = get_choice
+      end
+
+      # update_board(choice, current_player.symbol)
+    end
+  end
+
   def game_over?
     board.win_row? || board.win_diag_left? || board.win_diag_right? || board.win_column?
   end
