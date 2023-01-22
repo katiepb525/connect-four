@@ -152,16 +152,14 @@ describe Board do
   describe '#update_board' do 
     context 'on an empty board' do
       subject(:empty_board){ described_class.new }
-      before do
-        blank_grid = Array.new(6) { Array.new(7) { empty_circle } }
-        updated_grid = Array.new(6) { Array.new(7) { empty_circle } }
-        updated_grid[5][0] = 'X'
-      end
 
       it 'updates selected column with symbol' do
         valid_input = 1
         player_symbol = 'X'
-        expect(empty_board.update_board(valid_input, player_symbol)).to change(empty_board.grid).from(blank_grid).to(updated_grid)
+        blank_grid = Array.new(6) { Array.new(7) { empty_circle } }
+        updated_grid = Array.new(6) { Array.new(7) { empty_circle } }
+        updated_grid[5][0] = 'X'
+        expect{empty_board.update_board(valid_input, player_symbol)}.to change{empty_board.grid}.from(blank_grid).to(updated_grid)
       end
     end
   end
