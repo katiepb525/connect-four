@@ -21,8 +21,8 @@ class Game
     gets.chomp
   end
 
-  def get_choice
-    puts 'Enter a column number 1-7 to place your symbol.'
+  def get_choice(current_player)
+    puts "#{ current_player.name }, enter a column number 1-7 to place your symbol."
     gets.chomp.to_i
   end
 
