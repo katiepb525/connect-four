@@ -46,8 +46,8 @@ class Game
       
       board.display_board
 
-      until verify_input(get_choice)
-        choice = get_choice
+      until verify_input(get_choice(current_player))
+        choice = get_choice(current_player)
       end
 
       # update_board(choice, current_player.symbol)
