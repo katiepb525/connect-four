@@ -69,7 +69,7 @@ class Game
   end
 
   def tie?
-    !board.grid.include?(empty_circle)
+    board.grid.include?(empty_circle)
   end
 end
 
