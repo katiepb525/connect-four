@@ -34,6 +34,7 @@ class Game
     self.player1 = get_name('player one', heart)
     self.player2 = get_name('player two', star)
     current_player = self.player1
+    puts "Player one, you are #{heart}. Player two, you are #{star}."
 
     until game_over?(current_player) || tie?
       current_player = play_round
