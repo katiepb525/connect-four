@@ -10,15 +10,16 @@ class Game
   attr_accessor :board
 
   def initialize
-    @player1 = Player.new(get_name('player one'), umbrella)
-    @player2 = Player.new(get_name('player two'), cloud)
+    @player1
+    @player2
     @board = Board.new
     @turn = 0
   end
 
-  def get_name(current_player)
+  def get_name(current_player, symbol)
     puts "What is your name, #{current_player}?"
-    gets.chomp
+    name = gets.chomp
+    Player.new(name, symbol)
   end
 
   def get_choice(current_player)
@@ -36,8 +37,12 @@ class Game
   end
 
   def play_game
-    until game_over? || tie?
-      currrent_player = play_round
+    self.player1 = get_name('player one', umbrella)
+    self.player2 = get_name('player two', cloud)
+    current_player = self.player1
+
+    until game_over?(current_player) || tie?
+      current_player = play_round
       choice = nil
       
       board.display_board
