@@ -28,6 +28,7 @@ class Board
       index_end += 3
       return true if row[index_start..index_end].all? { |e| e == player_symbol }
     end
+    false
   end
 
   def win_diag_left?(player_symbol)
@@ -41,7 +42,6 @@ class Board
       diag = [grid[idx][idx + 1], grid[idx + 1][idx + 2], grid[idx + 2][idx + 3], grid[idx + 3][idx + 4]]
       return true if diag.all? { |e| e == player_symbol }
     end
-
     false
   end
 
