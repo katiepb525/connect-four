@@ -172,22 +172,26 @@ describe Board do
     end
 
     context 'on a board with the bottom half full' do
-      subject(:bottom_full_board){ described_class.new }
+      subject(:bottom_full_board) { described_class.new }
+      let(:bottom_full_grid) { Array.new(6) { Array.new(7) { empty_circle } } }
+      let(:updated_grid) { Array.new(6) { Array.new(7) { empty_circle } } }
+
+      before do
+        bottom_full_grid[5].map! { 'X' }
+
+        bottom_full_board.instance_variable_set(:@grid, bottom_full_grid)
+
+        updated_grid[5].map! { 'X' }
+
+        updated_grid[4][1] = 'X'
+      end
 
       it 'puts symbol on next row of selected column' do
-        bottom_full_grid = Array.new(6) { Array.new(7) { empty_circle } }
-        updated_grid = Array.new(6) { Array.new(7) { empty_circle } }  
-        bottom_full_grid[5].map! do |element|
-          element = 'X'
-        end
-        board.instance_variable_set(:@grid, bottom_full_grid)
-        updated_grid[5].map! do |element|
-          element = 'X'
-        end
-        updated_grid[4][1] = 'X'
         valid_input = 1
-        player_symbol = 'X'
-        expect{bottom_full_board.update_board(valid_input, player_symbol)}.to change{bottom_full_board.grid}.from(bottom_full_grid).to(updated_grid)
+        symbol = 'X'
+        expect { bottom_full_board.update_board(valid_input, symbol) }.to change {
+                                                                            bottom_full_board.grid
+                                                                          }.from(bottom_full_grid).to(updated_grid)
       end
     end
   end
