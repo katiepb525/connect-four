@@ -11,6 +11,16 @@ module Symbols
     empty_circle.encode('utf-8')
   end
 
+  def heart
+    heart = "\u2764"
+    heart.encode('utf-8')
+  end
+
+  def star
+    star = "\u2605"
+    star.encode('utf-8')
+  end
+
   def cloud
     cloud = "\u2601"
     cloud.encode('utf-8')
