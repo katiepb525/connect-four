@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 require './lib/board'
+require './lib/symbols'
 
 describe Board do
+  include Symbols
   subject(:board) { described_class.new }
 
   describe '#win_row?' do
