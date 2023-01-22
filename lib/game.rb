@@ -6,8 +6,7 @@ require './lib/board'
 
 class Game
   include Symbols
-  attr_reader :player1, :player2
-  attr_accessor :board
+  attr_accessor :board, :turn, :player1, :player2
 
   def initialize
     @player1
