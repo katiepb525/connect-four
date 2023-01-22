@@ -69,4 +69,14 @@ class Board
     end
     false
   end
+
+  def update_board(column_idx, player_symbol)
+    grid.reverse_each do |row|
+      if row[column_idx] == empty_circle
+        row[column_idx] = player_symbol
+        return
+      end
+    end
+    puts 'That column is full. Choose another one.'
+  end
 end
