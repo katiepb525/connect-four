@@ -54,6 +54,16 @@ class Game
     end
   end
 
+
+  def play_round 
+    self.turn += 1
+    if self.turn.odd? 
+      self.player1
+    else
+      self.player2 
+    end
+  end
+
   def game_over?(current_player)
     board.win_row?(current_player.symbol) || board.win_diag_left?(current_player.symbol) || board.win_diag_right?(current_player.symbol) || board.win_column?(current_player.symbol)
   end
