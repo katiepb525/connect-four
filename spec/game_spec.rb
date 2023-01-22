@@ -76,6 +76,21 @@ describe Game do
   end
 
   describe '#tie?' do
-    # checks if the grid is full
+    # checks if the board is full
+    subject(:board_full){ described_class.new }
+
+    context 'the board is full' do 
+      full_grid = Array.new(6) { Array.new(7) { 'X' } }
+      let(:board) { instance_double(Board, grid: full_grid) }
+
+      before do
+        board_full.instance_variable_set(:@board, board)
+      end
+
+      it 'returns true' do
+        result = board_full.tie?
+        expect(result).to be true
+      end
+    end
   end
 end
